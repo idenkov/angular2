@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './author.component'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,28 +10,22 @@ System.register(['angular2/core', './courses.component', './author.component'], 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, author_component_1;
+    var core_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (courses_component_1_1) {
-                courses_component_1 = courses_component_1_1;
-            },
-            function (author_component_1_1) {
-                author_component_1 = author_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.title = "Angular App";
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "<h1>Hello Angular 2</h1>\n    <courses></courses>\n    <authors></authors>",
-                        directives: [courses_component_1.CoursesComponent, author_component_1.AuthorComponent]
+                        template: "\n        <input type=\"text\" [value]=\"title\" (input)=\"title = $event.target.value\" />\n        <input type=\"button\" (click)=\"title = 'Ha'\" value=\"Clear\" />\n        Preview: {{ title }}\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

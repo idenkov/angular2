@@ -4,10 +4,13 @@ import {AuthorComponent} from './author.component';
  
 @Component({
     selector: 'my-app',
-    template: `<h1>Hello Angular 2</h1>
-    <courses></courses>
-    <authors></authors>`,
-    directives: [CoursesComponent, AuthorComponent]
+    template: `
+        <input type="text" [value]="title" (input)="title = $event.target.value" />
+        <input type="button" (click)="title = 'Ha'" value="Clear" />
+        Preview: {{ title }}
+    `
 })
 
-export class AppComponent { }
+export class AppComponent { 
+    title = "Angular App";
+}
