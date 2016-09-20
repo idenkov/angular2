@@ -6,6 +6,8 @@ import {AuthorComponent} from './author.component';
     selector: 'my-app',
     template: `
         <input type="text" [value]="title" (input)="title = $event.target.value" />
+        <input type="text" [(ngModel)]="title" />
+
         <input type="button" (click)="title = 'Ha'" value="Clear" />
         Preview: {{ title }}
     `

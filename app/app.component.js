@@ -25,7 +25,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <input type=\"text\" [value]=\"title\" (input)=\"title = $event.target.value\" />\n        <input type=\"button\" (click)=\"title = 'Ha'\" value=\"Clear\" />\n        Preview: {{ title }}\n    "
+                        template: "\n        <input type=\"text\" [value]=\"title\" (input)=\"title = $event.target.value\" />\n        <input type=\"text\" [(ngModel)]=\"title\" />\n\n        <input type=\"button\" (click)=\"title = 'Ha'\" value=\"Clear\" />\n        Preview: {{ title }}\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
