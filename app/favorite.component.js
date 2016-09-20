@@ -11,38 +11,31 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var AutoGrowDirective;
+    var FavoriteComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            AutoGrowDirective = (function () {
-                function AutoGrowDirective(el, renderer) {
-                    this.el = el;
-                    this.renderer = renderer;
+            FavoriteComponent = (function () {
+                function FavoriteComponent() {
+                    this.isFavorite = false;
                 }
-                AutoGrowDirective.prototype.onFocus = function () {
-                    this.renderer.setElementStyle(this.el.nativeElement, 'width', '200');
+                FavoriteComponent.prototype.onClick = function () {
+                    this.isFavorite = !this.isFavorite;
                 };
-                AutoGrowDirective.prototype.onBlur = function () {
-                    this.renderer.setElementStyle(this.el.nativeElement, 'width', '120');
-                };
-                AutoGrowDirective = __decorate([
-                    core_1.Directive({
-                        selector: '[autoGrow]',
-                        host: {
-                            '(focus)': 'onFocus()',
-                            '(blur)': 'onBlur()'
-                        }
+                FavoriteComponent = __decorate([
+                    core_1.Component({
+                        selector: 'favorite',
+                        template: "\n    <i \n        class=\"glyphicon\"\n        [class.glyphicon-star-empty]=\"!isFavorite\"\n        [class.glyphicon-star]=\"isFavorite\"\n        (click)=\"onClick()\">\n    </i>\n    "
                     }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer])
-                ], AutoGrowDirective);
-                return AutoGrowDirective;
+                    __metadata('design:paramtypes', [])
+                ], FavoriteComponent);
+                return FavoriteComponent;
             }());
-            exports_1("AutoGrowDirective", AutoGrowDirective);
+            exports_1("FavoriteComponent", FavoriteComponent);
         }
     }
 });
-//# sourceMappingURL=auto-grow.directive.js.map
+//# sourceMappingURL=favorite.component.js.map

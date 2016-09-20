@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {CoursesComponent} from './courses.component';
 import {AuthorComponent} from './author.component';
+import {FavoriteComponent} from './favorite.component';
  
 @Component({
     selector: 'my-app',
@@ -10,7 +11,9 @@ import {AuthorComponent} from './author.component';
 
         <input type="button" (click)="title = 'Ha'" value="Clear" />
         Preview: {{ title }}
-    `
+        <favorite></favorite>
+    `,
+    directives: [CoursesComponent, FavoriteComponent]
 })
 
 export class AppComponent { 

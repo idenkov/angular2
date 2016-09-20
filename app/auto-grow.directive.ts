@@ -3,7 +3,7 @@ import {Directive, ElementRef, Renderer} from 'angular2/core'
 @Directive({
     selector: '[autoGrow]',
     host: {
-        '(focus)': 'onFocus',
+        '(focus)': 'onFocus()',
         '(blur)': 'onBlur()'
     }
 })
