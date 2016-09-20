@@ -1,4 +1,4 @@
-System.register(['angular2/core', './like.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './voter.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,29 +10,29 @@ System.register(['angular2/core', './like.component'], function(exports_1, conte
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, like_component_1;
+    var core_1, voter_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (like_component_1_1) {
-                like_component_1 = like_component_1_1;
+            function (voter_component_1_1) {
+                voter_component_1 = voter_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.tweet = {
-                        totalLikes: 10,
-                        iLike: false
+                    this.vote = {
+                        totalVotes: 10,
+                        iVote: false
                     };
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <like [totalLikes]=\"tweet.totalLikes\" [iLike]=\"tweet.like\" ></like>\n    ",
-                        directives: [like_component_1.LikeComponent]
+                        template: "\n        <vote></vote>\n    ",
+                        directives: [voter_component_1.VoterComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

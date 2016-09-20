@@ -1,0 +1,11 @@
+<div class="vote-wrap">
+    <i class="glyphicon glyphicon-menu-up" 
+        (click)="upVote()"
+        [class.highlighted]="iVote"
+    ></i>
+        <span>{{ totalVotes }}</span>
+    <i class="glyphicon glyphicon-menu-down" 
+        (click)="downVote()"
+        [class.highlighted]="iVote"
+    ></i>
+</div>
