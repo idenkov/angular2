@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './favorite.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './favorite.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['angular2/core', './courses.component', './favorite.component']
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, favorite_component_1;
+    var core_1, favorite_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (courses_component_1_1) {
-                courses_component_1 = courses_component_1_1;
             },
             function (favorite_component_1_1) {
                 favorite_component_1 = favorite_component_1_1;
@@ -26,13 +23,19 @@ System.register(['angular2/core', './courses.component', './favorite.component']
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = "Angular App";
+                    this.post = {
+                        title: "Title",
+                        isFavorite: true
+                    };
                 }
+                AppComponent.prototype.onFavoriteChange = function ($event) {
+                    console.log($event);
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <input type=\"text\" [value]=\"title\" (input)=\"title = $event.target.value\" />\n        <input type=\"text\" [(ngModel)]=\"title\" />\n\n        <input type=\"button\" (click)=\"title = 'Ha'\" value=\"Clear\" />\n        Preview: {{ title }}\n        <favorite></favorite>\n    ",
-                        directives: [courses_component_1.CoursesComponent, favorite_component_1.FavoriteComponent]
+                        template: "\n        <favorite [isFavorite]=\"post.isFavorite\" (change)=\"onFavoriteChange($event)\"></favorite>\n    ",
+                        directives: [favorite_component_1.FavoriteComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
