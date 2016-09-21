@@ -1,21 +1,22 @@
 import {Component} from 'angular2/core';
-import {TweetComponent} from './tweet.component'
-import {TweetService} from './tweet.service'
 
 @Component({
     selector: 'my-app',
     template: `
-        <div *ngFor="#tweet of tweets">
-            <tweet [data]="tweet"></tweet>
+        <div *ngIf="courses.length > 0">
+            List of courses. ngIf
         </div>
-    `,
-    directives: [TweetComponent],
-    providers: [TweetService]
+        <div *ngIf="courses.length == 0">
+            You don't have any courses yet. ngIf
+        </div>
+        <div [hidden]="courses.length == 0">
+            List of courses. Binding
+        </div>
+        <div [hidden]="courses.length > 0">
+            You don't have any courses yet. Binding
+        </div>
+    `
 })
 export class AppComponent {
-    tweets: any[];
-    
-    constructor(tweetService: TweetService){
-        this.tweets = tweetService.getTweets();
-    }
+  courses = ['course1'];
 }
