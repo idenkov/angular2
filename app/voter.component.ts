@@ -1,4 +1,4 @@
-import {Component, Input, Output} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 
 @Component({
     selector: 'vote',
@@ -6,26 +6,38 @@ import {Component, Input, Output} from 'angular2/core';
     styles: [`
         .vote-wrap {
             width: 20px;
+            color: #999;
         }
         .vote-wrap i {
             cursor: pointer;
         }
-        .highlighted {
+        .voteup, .votedown {
             color: orange;
         }
     `]
 })
 
-export class VoterComponent{
-    @Input () totalVotes = 10;
-    @Input () iVote = false;
-
+export class VoterComponent {
+    @Input() voteCount = 0;
+    @Input() myVote = 0;
+    
+    @Output() vote = new EventEmitter();
+    
     upVote(){
-        this.iVote = !this.iVote;
-        this.totalVotes += this.iVote ? 1 : -1;
+        if (this.myVote == 1)
+            return;
+        
+        this.myVote++;
+
+        this.vote.emit({ myVote: this.myVote });
     }
+    
     downVote(){
-        this.iVote = !this.iVote;
-        this.totalVotes += this.iVote ? -1 : 1;
-    } 
+        if (this.myVote == -1)
+            return;
+            
+        this.myVote--;
+        
+        this.vote.emit({ myVote: this.myVote });
+    }
 }

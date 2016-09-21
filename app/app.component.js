@@ -23,15 +23,15 @@ System.register(['angular2/core', './voter.component'], function(exports_1, cont
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.vote = {
-                        totalVotes: 10,
-                        iVote: false
+                    this.post = {
+                        voteCount: 10,
+                        myVote: false
                     };
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <vote></vote>\n    ",
+                        template: "\n        <vote\n            [voteCount]=\"post.voteCount\"\n            [myVote]=\"post.myVote\"\n            (vote)=\"onVote($event)\">\n        </vote>\n    ",
                         directives: [voter_component_1.VoterComponent]
                     }), 
                     __metadata('design:paramtypes', [])

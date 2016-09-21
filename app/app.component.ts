@@ -4,15 +4,19 @@ import {VoterComponent} from './voter.component';
 @Component({
     selector: 'my-app',
     template: `
-        <vote></vote>
+        <vote
+            [voteCount]="post.voteCount"
+            [myVote]="post.myVote"
+            (vote)="onVote($event)">
+        </vote>
     `,
     directives: [VoterComponent]
 })
 
 export class AppComponent { 
-    vote = {
-        totalVotes: 10,
-        iVote: false
+    post = {
+        voteCount: 10,
+        myVote: false
     }
 
 }

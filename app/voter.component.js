@@ -20,30 +20,39 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             VoterComponent = (function () {
                 function VoterComponent() {
-                    this.totalVotes = 10;
-                    this.iVote = false;
+                    this.voteCount = 0;
+                    this.myVote = 0;
+                    this.vote = new core_1.EventEmitter();
                 }
                 VoterComponent.prototype.upVote = function () {
-                    this.iVote = !this.iVote;
-                    this.totalVotes += this.iVote ? 1 : -1;
+                    if (this.myVote == 1)
+                        return;
+                    this.myVote++;
+                    this.vote.emit({ myVote: this.myVote });
                 };
                 VoterComponent.prototype.downVote = function () {
-                    this.iVote = !this.iVote;
-                    this.totalVotes += this.iVote ? -1 : 1;
+                    if (this.myVote == -1)
+                        return;
+                    this.myVote--;
+                    this.vote.emit({ myVote: this.myVote });
                 };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Object)
-                ], VoterComponent.prototype, "totalVotes", void 0);
+                ], VoterComponent.prototype, "voteCount", void 0);
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Object)
-                ], VoterComponent.prototype, "iVote", void 0);
+                ], VoterComponent.prototype, "myVote", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], VoterComponent.prototype, "vote", void 0);
                 VoterComponent = __decorate([
                     core_1.Component({
                         selector: 'vote',
                         templateUrl: 'app/voter.template.html',
-                        styles: ["\n        .vote-wrap {\n            width: 20px;\n        }\n        .vote-wrap i {\n            cursor: pointer;\n        }\n        .highlighted {\n            color: orange;\n        }\n    "]
+                        styles: ["\n        .vote-wrap {\n            width: 20px;\n            color: #999;\n        }\n        .vote-wrap i {\n            cursor: pointer;\n        }\n        .voteup, .votedown {\n            color: orange;\n        }\n    "]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], VoterComponent);
