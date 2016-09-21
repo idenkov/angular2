@@ -20,12 +20,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.courses = ['course1'];
+                    this.viewMode = 'map';
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <div *ngIf=\"courses.length > 0\">\n            List of courses. ngIf\n        </div>\n        <div *ngIf=\"courses.length == 0\">\n            You don't have any courses yet. ngIf\n        </div>\n        <div [hidden]=\"courses.length == 0\">\n            List of courses. Binding\n        </div>\n        <div [hidden]=\"courses.length > 0\">\n            You don't have any courses yet. Binding\n        </div>\n    "
+                        template: "\n      <ul class=\"nav nav-pills\">\n        <li [class.active]=\"viewMode == 'map'\"><a (click)=\"viewMode = 'map'\">Map View</a></li>\n        <li [class.active]=\"viewMode == 'list'\"><a (click)=\"viewMode = 'list'\">List View</a></li>\n      </ul>\n      <div [ngSwitch]=\"viewMode\">\n        <template [ngSwitchWhen=\"'map'\" ngSwitchDefault]>Map View Content</template>\n        <template [ngSwitchWhen=\"'list'\"]>List View Component</template>\n      </div>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
