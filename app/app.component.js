@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', './summary.pipe'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,28 +10,29 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, summary_pipe_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (summary_pipe_1_1) {
+                summary_pipe_1 = summary_pipe_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.course = {
-                        title: "Angular 2 for Beginners",
-                        rating: 4.9745,
-                        students: 5981,
-                        price: 99.95,
-                        releaseDate: new Date(2016, 9, 15)
+                    this.post = {
+                        title: "Angular Tutorial for Beginners",
+                        body: "\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In malesuada scelerisque tristique. \n            Curabitur mattis dui mi, et dapibus odio mollis quis. Praesent aliquet lectus id gravida suscipit. \n            Fusce volutpat efficitur vulputate. Nunc porttitor aliquam fringilla. Donec quis lectus tristique,\n             consectetur mi non, rhoncus dolor. Phasellus elementum mollis finibus.\n        "
                     };
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n       {{ course.title | uppercase }}\n       <br />\n       {{ course.students | number }}\n       <br />\n       {{ course.rating | number:'2.2-2' }}\n       <br />\n       {{ course.price | currency:'AUD':true:'2.2-2' }}\n       <br />\n       {{ course.releaseDate | date: 'MMM yyyy' }}\n       <br />\n       {{ course | json }}\n    "
+                        template: "\n        {{ post.title }}\n        <br />\n        {{ post.body | summary:25 }}\n    ",
+                        pipes: [summary_pipe_1.SummaryPipe]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
