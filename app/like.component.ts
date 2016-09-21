@@ -3,7 +3,14 @@ import {Component, Input} from 'angular2/core';
 
 @Component({
     selector: 'like',
-    templateUrl: 'app/like.template.html',
+    template: `
+    <i
+       class="glyphicon glyphicon-heart" 
+       [class.highlighted]="iLike"
+       (click)="onClick()">
+    </i>
+    <span>{{ totalLikes }}</span>
+    `,
     styles: [`
         .glyphicon-heart {
             color: #ccc;
