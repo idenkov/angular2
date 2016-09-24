@@ -1,17 +1,16 @@
 import {Component} from 'angular2/core';
-import {ZippyComponent} from './zippy.component';
+import {BootstrapPanel} from './bootstrap.panel.component';
 
 @Component({
     selector: 'my-app',
-    directives: [ZippyComponent],
+    directives: [BootstrapPanel],
     template: `
-        <zippy title="Who can see my stuff?">
-            Content of who can see my stuff
-        </zippy>
-        <zippy title="Who can contact me?">
-            Content of who can contact me
-        </zippy>
-    `
+        <bs-panel>
+            <div class="heading">The Heading</div>
+            <div class="body">This is the body!</div>
+            <div class="body">This is another body!</div>
+        </bs-panel>
+    `,
 })
 export class AppComponent {
 }
