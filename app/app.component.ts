@@ -1,17 +1,12 @@
 import {Component} from 'angular2/core';
-import {BootstrapPanel} from './bootstrap.panel.component';
+import {ContactFormComponent} from './contact-form.component'
 
 @Component({
     selector: 'my-app',
-    directives: [BootstrapPanel],
+    directives: [ContactFormComponent],
     template: `
-        <bs-panel>
-            <div class="heading">The Heading</div>
-            <div class="body">This is the body!</div>
-            <div class="body">This is another body!</div>
-        </bs-panel>
+        <contact-form></contact-form>
     `,
 })
 export class AppComponent {
 }
-ha
