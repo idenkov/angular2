@@ -7,8 +7,8 @@
             id="firstName" 
             type="text" 
             class="form-control" 
-            required
-            minlength="4">
+            minlength="4"
+            required>
             <div *ngIf="firstName.touched && firstName.errors">
                 {{ firstName.errors | json}}
                 <div 
