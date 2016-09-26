@@ -20,9 +20,14 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             SubscriptionFormComponent = (function () {
                 function SubscriptionFormComponent() {
+                    this.frequencies = [
+                        { id: 1, label: 'Daily' },
+                        { id: 2, label: 'Weekly' },
+                        { id: 3, label: 'Monthly' }
+                    ];
                 }
-                SubscriptionFormComponent.prototype.onSubmit = function (form) {
-                    console.log(form);
+                SubscriptionFormComponent.prototype.onSubscribe = function (form) {
+                    console.log(form.value);
                 };
                 SubscriptionFormComponent = __decorate([
                     core_1.Component({
