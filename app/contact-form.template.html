@@ -1,10 +1,9 @@
-<form>
+<form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
     <div class="form-group">
         <label for="firstName">First Name</label>
         <input 
             ngControl="firstName" 
-            #firstName="ngForm"
-            (change)="log(firstName)"  
+            #firstName="ngForm"  
             id="firstName" 
             type="text" 
             class="form-control" 
@@ -41,5 +40,5 @@
             Comment is required
         </div>
     </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
 </form>
