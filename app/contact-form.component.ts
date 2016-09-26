@@ -5,4 +5,8 @@ import {Component} from 'angular2/core';
     templateUrl: 'app/contact-form.template.html' 
 })
 export class ContactFormComponent {
+    log(x){
+        console.log(x);
+    }
+    
 }
