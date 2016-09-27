@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core'
+import {Component} from '@angular/core'
 import {CourseService} from './course.service'
 import {AutoGrowDirective} from './auto-grow.directive'
 
@@ -14,7 +14,7 @@ import {AutoGrowDirective} from './auto-grow.directive'
       </li>
     </ul>
     `,
-  providers: [CourseService]
+  providers: [CourseService],
   directives: [AutoGrowDirective]
 })
 

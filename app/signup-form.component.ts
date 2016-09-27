@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {ControlGroup, Control, Validators, FormBuilder} from 'angular2/common';
+import {Component} from '@angular/core';
+import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import {UsernameValidators} from './usernameValidators';
 
 @Component({
@@ -7,7 +7,7 @@ import {UsernameValidators} from './usernameValidators';
     templateUrl: 'app/signup-form.template.html'
 })
 export class SignUpFormComponent {
-    form: ControlGroup;
+    form: FormGroup;
 
     constructor(fb: FormBuilder){
         this.form = fb.group({
